@@ -12,7 +12,8 @@ export default class SearchArtistPage extends Component {
 
   state = {
     searchInput: '',
-    artists: []
+    artists: [],
+    page: 0
   }
 
   handleChange = (event) => {
@@ -25,6 +26,24 @@ export default class SearchArtistPage extends Component {
       .then(result => this.setState({ artists: result }));
   }
 
+  pageUpFunction = () => {
+    this.setState(state => ({
+      page: state.page + 1
+    }), () => {
+      return getArtists(this.state.searchInput, this.state.page)
+        .then(result => this.setState({ artists: result }));
+    });
+  } 
+
+  pageDownFunction = () => {
+    this.setState(state => ({
+      page: state.page - 1
+    }), () => {
+      return getArtists(this.state.searchInput, this.state.page)
+        .then(result => this.setState({ artists: result }));
+    });
+  }
+
   render() {
     return (
       <>
@@ -33,7 +52,10 @@ export default class SearchArtistPage extends Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
         />
-        <PagingButtons />
+        <PagingButtons 
+          pageUpFunction={this.pageUpFunction}
+          pageDownFunction={this.pageDownFunction}
+        />
         <Artists items={this.state.artists}/>
       </>
     );
