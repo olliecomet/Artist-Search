@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const Artist = ({ name, country, disambiguation }) => {
+const Artist = ({ id, name, country, disambiguation }) => {
   return (
     <section>
-      <h3>Name: {name}</h3>
+      <h3 id={id}>Name: {name}</h3>
       {country && <p>Country: {country}</p>}
       {disambiguation && <p>{disambiguation}</p>}
     </section>
@@ -12,7 +12,10 @@ export const Artist = ({ name, country, disambiguation }) => {
 };
 
 Artist.propTypes = {
+  id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   country: PropTypes.string,
   disambiguation: PropTypes.string
 };
+
+export default Artist;
