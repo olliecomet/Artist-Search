@@ -4,6 +4,7 @@ import SearchArtistPage from '../components/containers/SearchArtistPage';
 import Header from './header/Header';
 import Footer from './footer/Footer';
 import Discography from './containers/Discography';
+import RecordPage from './containers/RecordPage';
 
 const App = () => {
   
@@ -13,6 +14,7 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={SearchArtistPage} />
         <Route path="/albums/:id" component={Discography} />
+        <Route path="/recordings/:albumId" component={RecordPage}/>
       </Switch>
       <Footer />
     </Router>

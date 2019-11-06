@@ -5,10 +5,7 @@ const getAlbums = (id, page) => {
       id,
       name: title,
       cover: `http://coverartarchive.org/release/${id}/front`
-    })))
-    .catch(err => {
-      console.log(err);
-    });
+    })));
 };
 
 export default getAlbums;
