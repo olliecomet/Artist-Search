@@ -13,8 +13,8 @@ const App = () => {
       <Header />
       <Switch>
         <Route exact path="/" component={SearchArtistPage} />
-        <Route path="/albums/:id" component={Discography} />
-        <Route path="/recordings/:albumId" component={RecordPage}/>
+        <Route path="/albums/:id/:artist" component={Discography} />
+        <Route path="/recordings/:albumId/:artist" component={RecordPage}/>
       </Switch>
       <Footer />
     </Router>

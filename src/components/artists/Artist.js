@@ -8,7 +8,7 @@ const Artist = ({ id, name, country, disambiguation }) => {
       <h3>Name: {name}</h3>
       {country && <p>Country: {country}</p>}
       {disambiguation && <p>{disambiguation}</p>}
-      <Link to={`/albums/${id}`}>View Discography</Link>
+      <Link to={`/albums/${id}/${name}`}>View Discography</Link>
     </section>
   );
 };

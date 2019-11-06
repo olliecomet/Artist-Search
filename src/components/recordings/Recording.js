@@ -1,11 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
-const Recording = ({ id, title, artist }) => {
+const Recording = ({ id, title, match }) => {
   return (
     <section id={id}>
-      <Link to={`/lyrics/${artist}/${title}`}><h3>Title: {title}</h3></Link>
+      <Link to={`/lyrics/${match.params.artist}/${title}`}><h3>Title: {title}</h3></Link>
     </section>
   );
 };
@@ -13,7 +13,8 @@ const Recording = ({ id, title, artist }) => {
 Recording.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  artist: PropTypes.string.isRequired
+  artist: PropTypes.string.isRequired,
+  match: PropTypes.object.isRequired
 };
 
-export default Recording;
+export default withRouter(Recording);

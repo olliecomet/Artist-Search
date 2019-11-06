@@ -5,8 +5,7 @@ import getSongs from '../services/getSongs';
 
 export default class RecordPage extends Component {
   static propTypes = {
-    artist: PropTypes.string.isRequired,
-    match: PropTypes.string.isRequired
+    match: PropTypes.object.isRequired
   }
 
   state = {
@@ -23,7 +22,7 @@ export default class RecordPage extends Component {
   render() {
     return (
       <>
-        <Recordings items={this.state.songs} artist={this.props.artist} />
+        <Recordings items={this.state.songs} />
       </>
     );
   }
