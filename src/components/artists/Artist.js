@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 const Artist = ({ id, name, country, disambiguation }) => {
   return (
     <section>
-      <h3 id={id}>Name: {name}</h3>
+      <h3>Name: {name}</h3>
       {country && <p>Country: {country}</p>}
       {disambiguation && <p>{disambiguation}</p>}
+      <Link to={`/albums/${id}`}>View Discography</Link>
     </section>
   );
 };
