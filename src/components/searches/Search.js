@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Search = ({ searchInput, handleChange, handleSubmit }) => {
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" placeholder="Artist Name" value={searchInput} onChange={handleChange}></input>
+      <input type="text" placeholder="Artist Name" value={searchInput} onChange={handleChange} required></input>
       <button type="submit">Search</button>
     </form>
   );

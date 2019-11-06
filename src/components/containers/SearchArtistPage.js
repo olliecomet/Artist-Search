@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Search from '../searches/Search';
 import PagingButtons from '../paging/PagingButtons';
 import Artists from '../artists/Artists';
 import getArtists from '../services/getArtists';
 
 export default class SearchArtistPage extends Component {
-  static propTypes = {
-
-  }
-
   state = {
     searchInput: '',
     artists: [],
-    page: 0
+    page: 0,
+    upDisable: true,
+    downDisable: true
   }
 
   handleChange = (event) => {
@@ -23,7 +20,10 @@ export default class SearchArtistPage extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     getArtists(this.state.searchInput, 0)
-      .then(result => this.setState({ artists: result }));
+      .then(result => this.setState({ 
+        artists: result, 
+        upDisable: false, 
+      }));
   }
 
   pageUpFunction = () => {
@@ -31,7 +31,10 @@ export default class SearchArtistPage extends Component {
       page: state.page + 1
     }), () => {
       return getArtists(this.state.searchInput, this.state.page)
-        .then(result => this.setState({ artists: result }));
+        .then(result => this.setState({ 
+          artists: result,
+          downDisable: false
+        }));
     });
   } 
 
@@ -40,7 +43,10 @@ export default class SearchArtistPage extends Component {
       page: state.page - 1
     }), () => {
       return getArtists(this.state.searchInput, this.state.page)
-        .then(result => this.setState({ artists: result }));
+        .then(result => this.setState({ 
+          artists: result,
+          downDisable: this.state.page === 0 ? true : false
+        }));
     });
   }
 
@@ -55,6 +61,8 @@ export default class SearchArtistPage extends Component {
         <PagingButtons 
           pageUpFunction={this.pageUpFunction}
           pageDownFunction={this.pageDownFunction}
+          upDisable={this.state.upDisable}
+          downDisable={this.state.downDisable}
         />
         <Artists items={this.state.artists}/>
       </>
