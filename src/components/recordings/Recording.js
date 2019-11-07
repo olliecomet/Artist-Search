@@ -13,7 +13,6 @@ const Recording = ({ id, title, match }) => {
 Recording.propTypes = {
   id: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
-  artist: PropTypes.string.isRequired,
   match: PropTypes.object.isRequired
 };
 

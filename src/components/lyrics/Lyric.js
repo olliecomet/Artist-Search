@@ -5,7 +5,7 @@ const Lyric = ({ title, lyrics }) => {
   return (
     <section>
       <h2>{title}</h2>
-      <p>{lyrics}</p>
+      <pre>{lyrics}</pre>
     </section>
   );
 };
