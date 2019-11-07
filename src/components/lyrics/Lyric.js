@@ -5,14 +5,14 @@ const Lyric = ({ title, lyrics }) => {
   return (
     <section>
       <h2>{title}</h2>
-      <pre>{lyrics}</pre>
+      {lyrics ? <pre>{lyrics}</pre> : <p>No lyrics found :,(</p>}
     </section>
   );
 };
 
 Lyric.propTypes = {
   title: PropTypes.string.isRequired,
-  lyrics: PropTypes.string.isRequired
+  lyrics: PropTypes.string
 };
 
 export default Lyric;
