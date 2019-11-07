@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Album from './Album';
+import styles from './Albums.css';
 
 const Albums = ({ items }) => {
   const albumList = items.map(item => {
     return <li key={item.id}><Album {...item} /></li>;
   });
   return (
-    <ul>
+    <ul className={styles.Albums}>
       {albumList}
     </ul>
   );

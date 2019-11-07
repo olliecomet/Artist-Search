@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './PagingButtons.css';
 
 const PagingButtons = ({ pageUpFunction, pageDownFunction, upDisable, downDisable }) => {
   return (
-    <section>
-      <button disabled={upDisable} onClick={pageUpFunction}>Page up</button>
-      <button disabled={downDisable} onClick={pageDownFunction}>Page down</button>
+    <section className={styles.PagingButtons} >
+      <button disabled={downDisable} onClick={pageDownFunction}>Previous Page</button>
+      <button disabled={upDisable} onClick={pageUpFunction}>Next Page</button>
     </section>
   );
 };

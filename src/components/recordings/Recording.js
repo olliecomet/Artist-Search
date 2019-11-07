@@ -5,7 +5,7 @@ import { Link, withRouter } from 'react-router-dom';
 const Recording = ({ id, title, match }) => {
   return (
     <section id={id}>
-      <Link to={`/lyrics/${match.params.artist}/${title}`}><h3>Title: {title}</h3></Link>
+      <Link to={`/lyrics/${match.params.artist}/${title}`}><h3>{title}</h3></Link>
     </section>
   );
 };

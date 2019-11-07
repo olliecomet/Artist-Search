@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from './Footer.css';
 
 const Footer = () => {
   return (
-    <footer>
+    <footer className={styles.Foot}>
       <p>&copy; OEA Music</p>
     </footer>
   );

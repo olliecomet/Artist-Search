@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import styles from './Artist.css';
 
 const Artist = ({ id, name, country, disambiguation }) => {
   return (
-    <section>
+    <section className={styles.Artist}>
       <h3>Name: {name}</h3>
       {country && <p>Country: {country}</p>}
       {disambiguation && <p>{disambiguation}</p>}
